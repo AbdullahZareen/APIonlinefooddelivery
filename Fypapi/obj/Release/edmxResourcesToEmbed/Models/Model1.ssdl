@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FYPModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="cid" />
+    </Key>
+    <Property Name="cid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cname" Type="varchar" MaxLength="50" />
+    <Property Name="cemail" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="cAddrees" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ccity" Type="varchar" MaxLength="50" />
+    <Property Name="cnumber" Type="varchar" MaxLength="50" />
+    <Property Name="cpassword" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="DeliverBoy">
+    <Key>
+      <PropertyRef Name="did" />
+    </Key>
+    <Property Name="did" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="dname" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="daddress" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="dbike_model" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="demail" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="dnumber" Type="varchar" MaxLength="50" />
+    <Property Name="dpassword" Type="varchar" MaxLength="50" />
+    <Property Name="rclongitude" Type="varchar" MaxLength="50" />
+    <Property Name="rclattitude" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Food_item">
+    <Key>
+      <PropertyRef Name="fid" />
+    </Key>
+    <Property Name="fid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fname" Type="varchar" MaxLength="50" />
+    <Property Name="ftype" Type="varchar" MaxLength="50" />
+    <Property Name="fprice" Type="int" />
+    <Property Name="fdiscount" Type="int" />
+    <Property Name="ftime" Type="int" />
+    <Property Name="rid" Type="int" />
+  </EntityType>
+  <EntityType Name="Orders">
+    <Key>
+      <PropertyRef Name="oid" />
+    </Key>
+    <Property Name="oid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="odate" Type="date" />
+    <Property Name="otime" Type="time" Precision="7" />
+    <Property Name="opickuptime" Type="time" Precision="7" />
+    <Property Name="odeliverytime" Type="time" Precision="7" />
+    <Property Name="ocomments" Type="varchar" MaxLength="100" />
+    <Property Name="orating" Type="int" />
+    <Property Name="dboyrating" Type="int" />
+    <Property Name="dboycomments" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Resturant">
+    <Key>
+      <PropertyRef Name="rid" />
+    </Key>
+    <Property Name="rid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="rcname" Type="varchar" MaxLength="50" />
+    <Property Name="rcaddress" Type="varchar" MaxLength="50" />
+    <Property Name="rccity" Type="varchar" MaxLength="50" />
+    <Property Name="rcemail" Type="varchar" MaxLength="50" />
+    <Property Name="cpassword" Type="varchar" MaxLength="50" />
+    <Property Name="rclongitude" Type="varchar" MaxLength="50" />
+    <Property Name="rclattitude" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'FYP.dbo.UserLogin' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="UserLogin">
+    <Key>
+      <PropertyRef Name="roles" />
+    </Key>
+    <Property Name="email" Type="varchar" MaxLength="50" />
+    <Property Name="passwords" Type="varchar" MaxLength="50" />
+    <Property Name="roles" Type="varchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Food_item__rid__787EE5A0">
+    <End Role="Resturant" Type="Self.Resturant" Multiplicity="0..1" />
+    <End Role="Food_item" Type="Self.Food_item" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Resturant">
+        <PropertyRef Name="rid" />
+      </Principal>
+      <Dependent Role="Food_item">
+        <PropertyRef Name="rid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="FYPModelStoreContainer">
+    <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DeliverBoy" EntityType="Self.DeliverBoy" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Food_item" EntityType="Self.Food_item" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Resturant" EntityType="Self.Resturant" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserLogin" EntityType="Self.UserLogin" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [UserLogin].[email] AS [email], 
+    [UserLogin].[passwords] AS [passwords], 
+    [UserLogin].[roles] AS [roles]
+    FROM [dbo].[UserLogin] AS [UserLogin]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK__Food_item__rid__787EE5A0" Association="Self.FK__Food_item__rid__787EE5A0">
+      <End Role="Resturant" EntitySet="Resturant" />
+      <End Role="Food_item" EntitySet="Food_item" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FYPModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="FYPEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Orders" EntityType="FYPModel.Order" />
+    <EntitySet Name="Food_item" EntityType="FYPModel.Food_item" />
+    <EntitySet Name="Customers" EntityType="FYPModel.Customer" />
+    <EntitySet Name="UserLogins" EntityType="FYPModel.UserLogin" />
+    <EntitySet Name="DeliverBoys" EntityType="FYPModel.DeliverBoy" />
+    <EntitySet Name="Resturants" EntityType="FYPModel.Resturant" />
+    <AssociationSet Name="FK__Food_item__rid__787EE5A0" Association="FYPModel.FK__Food_item__rid__787EE5A0">
+      <End Role="Resturant" EntitySet="Resturants" />
+      <End Role="Food_item" EntitySet="Food_item" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="oid" />
+    </Key>
+    <Property Name="oid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="odate" Type="DateTime" Precision="0" />
+    <Property Name="otime" Type="Time" Precision="7" />
+    <Property Name="opickuptime" Type="Time" Precision="7" />
+    <Property Name="odeliverytime" Type="Time" Precision="7" />
+    <Property Name="ocomments" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="orating" Type="Int32" />
+    <Property Name="dboyrating" Type="Int32" />
+    <Property Name="dboycomments" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Food_item">
+    <Key>
+      <PropertyRef Name="fid" />
+    </Key>
+    <Property Name="fid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="fname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ftype" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="fprice" Type="Int32" />
+    <Property Name="fdiscount" Type="Int32" />
+    <Property Name="ftime" Type="Int32" />
+    <Property Name="rid" Type="Int32" />
+    <NavigationProperty Name="Resturant" Relationship="FYPModel.FK__Food_item__rid__787EE5A0" FromRole="Food_item" ToRole="Resturant" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="cid" />
+    </Key>
+    <Property Name="cid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="cemail" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="cAddrees" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ccity" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="cnumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="cpassword" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="UserLogin">
+    <Key>
+      <PropertyRef Name="roles" />
+    </Key>
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="passwords" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="roles" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="DeliverBoy">
+    <Key>
+      <PropertyRef Name="did" />
+    </Key>
+    <Property Name="did" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="dname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="daddress" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="dbike_model" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="demail" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="dnumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="dpassword" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="rclongitude" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="rclattitude" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Resturant">
+    <Key>
+      <PropertyRef Name="rid" />
+    </Key>
+    <Property Name="rid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="rcname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="rcaddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="rccity" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="rcemail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="cpassword" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="rclongitude" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="rclattitude" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Food_item" Relationship="FYPModel.FK__Food_item__rid__787EE5A0" FromRole="Resturant" ToRole="Food_item" />
+  </EntityType>
+  <Association Name="FK__Food_item__rid__787EE5A0">
+    <End Type="FYPModel.Resturant" Role="Resturant" Multiplicity="0..1" />
+    <End Type="FYPModel.Food_item" Role="Food_item" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Resturant">
+        <PropertyRef Name="rid" />
+      </Principal>
+      <Dependent Role="Food_item">
+        <PropertyRef Name="rid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

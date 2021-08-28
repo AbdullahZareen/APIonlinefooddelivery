@@ -1,0 +1,231 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="FYPModelStoreContainer" CdmEntityContainer="FYPEntities">
+    <EntitySetMapping Name="UserLogins">
+      <EntityTypeMapping TypeName="FYPModel.UserLogin">
+        <MappingFragment StoreEntitySet="UserLogin">
+          <ScalarProperty Name="roles" ColumnName="roles" />
+          <ScalarProperty Name="passward" ColumnName="passward" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="u_id" ColumnName="u_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="scheduledataday" FunctionName="FYPModel.Store.scheduledataday">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FYPModel.scheduledataday_Result">
+          <ScalarProperty Name="Deleiveryday" ColumnName="Deleiveryday" />
+          <ScalarProperty Name="fName" ColumnName="fName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="scheduledataday1" FunctionName="FYPModel.Store.scheduledataday1">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FYPModel.scheduledataday1_Result">
+          <ScalarProperty Name="menu" ColumnName="menu" />
+          <ScalarProperty Name="Deleiveryday" ColumnName="Deleiveryday" />
+          <ScalarProperty Name="dtime" ColumnName="dtime" />
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
+          <ScalarProperty Name="fName" ColumnName="fName" />
+          <ScalarProperty Name="fprice" ColumnName="fprice" />
+          <ScalarProperty Name="fdiscount" ColumnName="fdiscount" />
+          <ScalarProperty Name="fcooktime" ColumnName="fcooktime" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="scheduledata2" FunctionName="FYPModel.Store.scheduledata2">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FYPModel.scheduledata2_Result">
+          <ScalarProperty Name="mid" ColumnName="mid" />
+          <ScalarProperty Name="Routinetype" ColumnName="Routinetype" />
+          <ScalarProperty Name="Deleiveryday" ColumnName="Deleiveryday" />
+          <ScalarProperty Name="dtime" ColumnName="dtime" />
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
+          <ScalarProperty Name="fName" ColumnName="fName" />
+          <ScalarProperty Name="fprice" ColumnName="fprice" />
+          <ScalarProperty Name="fdiscount" ColumnName="fdiscount" />
+          <ScalarProperty Name="fcooktime" ColumnName="fcooktime" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="Resturants">
+      <EntityTypeMapping TypeName="FYPModel.Resturant">
+        <MappingFragment StoreEntitySet="Resturant">
+          <ScalarProperty Name="rcnumber" ColumnName="rcnumber" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="ownername" ColumnName="ownername" />
+          <ScalarProperty Name="rcImage" ColumnName="rcImage" />
+          <ScalarProperty Name="rclattitude" ColumnName="rclattitude" />
+          <ScalarProperty Name="rclongitude" ColumnName="rclongitude" />
+          <ScalarProperty Name="rpassword" ColumnName="rpassword" />
+          <ScalarProperty Name="rcemail" ColumnName="rcemail" />
+          <ScalarProperty Name="rccity" ColumnName="rccity" />
+          <ScalarProperty Name="rcaddress" ColumnName="rcaddress" />
+          <ScalarProperty Name="rcname" ColumnName="rcname" />
+          <ScalarProperty Name="rid" ColumnName="rid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="ordersproc" FunctionName="FYPModel.Store.ordersproc">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FYPModel.ordersproc_Result">
+          <ScalarProperty Name="oid" ColumnName="oid" />
+          <ScalarProperty Name="odate" ColumnName="odate" />
+          <ScalarProperty Name="odeliverytime" ColumnName="odeliverytime" />
+          <ScalarProperty Name="totalbill" ColumnName="totalbill" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="DeliverBoys">
+      <EntityTypeMapping TypeName="FYPModel.DeliverBoy">
+        <MappingFragment StoreEntitySet="DeliverBoy">
+          <ScalarProperty Name="WorkingStatus" ColumnName="WorkingStatus" />
+          <ScalarProperty Name="demail" ColumnName="demail" />
+          <ScalarProperty Name="dlongitude" ColumnName="dlongitude" />
+          <ScalarProperty Name="dlattitude" ColumnName="dlattitude" />
+          <ScalarProperty Name="dbikenumber" ColumnName="dbikenumber" />
+          <ScalarProperty Name="dpassword" ColumnName="dpassword" />
+          <ScalarProperty Name="dnumber" ColumnName="dnumber" />
+          <ScalarProperty Name="daddress" ColumnName="daddress" />
+          <ScalarProperty Name="dname" ColumnName="dname" />
+          <ScalarProperty Name="did" ColumnName="did" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customers">
+      <EntityTypeMapping TypeName="FYPModel.Customer">
+        <MappingFragment StoreEntitySet="Customer">
+          <ScalarProperty Name="clattitude" ColumnName="clattitude" />
+          <ScalarProperty Name="clongitude" ColumnName="clongitude" />
+          <ScalarProperty Name="cpassword" ColumnName="cpassword" />
+          <ScalarProperty Name="cnumber" ColumnName="cnumber" />
+          <ScalarProperty Name="ccity" ColumnName="ccity" />
+          <ScalarProperty Name="cAddrees" ColumnName="cAddrees" />
+          <ScalarProperty Name="cemail" ColumnName="cemail" />
+          <ScalarProperty Name="cname" ColumnName="cname" />
+          <ScalarProperty Name="cid" ColumnName="cid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Orders">
+      <EntityTypeMapping TypeName="FYPModel.Order">
+        <MappingFragment StoreEntitySet="Orders">
+          <ScalarProperty Name="schday" ColumnName="schday" />
+          <ScalarProperty Name="activatestatus" ColumnName="activatestatus" />
+          <ScalarProperty Name="Delivereddate" ColumnName="Delivereddate" />
+          <ScalarProperty Name="SchduleStatus" ColumnName="SchduleStatus" />
+          <ScalarProperty Name="rid" ColumnName="rid" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="acceptstatus" ColumnName="acceptstatus" />
+          <ScalarProperty Name="cid" ColumnName="cid" />
+          <ScalarProperty Name="did" ColumnName="did" />
+          <ScalarProperty Name="Totalbill" ColumnName="Totalbill" />
+          <ScalarProperty Name="odeliverytime" ColumnName="odeliverytime" />
+          <ScalarProperty Name="opickuptime" ColumnName="opickuptime" />
+          <ScalarProperty Name="otime" ColumnName="otime" />
+          <ScalarProperty Name="deliverydate" ColumnName="deliverydate" />
+          <ScalarProperty Name="odate" ColumnName="odate" />
+          <ScalarProperty Name="oid" ColumnName="oid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Subscriptions">
+      <EntityTypeMapping TypeName="FYPModel.Subscription">
+        <MappingFragment StoreEntitySet="Subscription">
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="cid" ColumnName="cid" />
+          <ScalarProperty Name="enddate" ColumnName="enddate" />
+          <ScalarProperty Name="Startdate" ColumnName="Startdate" />
+          <ScalarProperty Name="subid" ColumnName="subid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SubscriptionDeleiveries">
+      <EntityTypeMapping TypeName="FYPModel.SubscriptionDeleivery">
+        <MappingFragment StoreEntitySet="SubscriptionDeleivery">
+          <ScalarProperty Name="did" ColumnName="did" />
+          <ScalarProperty Name="mid" ColumnName="mid" />
+          <ScalarProperty Name="dstatus" ColumnName="dstatus" />
+          <ScalarProperty Name="ddate" ColumnName="ddate" />
+          <ScalarProperty Name="subdelid" ColumnName="subdelid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FoodItems">
+      <EntityTypeMapping TypeName="FYPModel.FoodItem">
+        <MappingFragment StoreEntitySet="FoodItem">
+          <ScalarProperty Name="rid" ColumnName="rid" />
+          <ScalarProperty Name="fcooktime" ColumnName="fcooktime" />
+          <ScalarProperty Name="fdiscount" ColumnName="fdiscount" />
+          <ScalarProperty Name="fprice" ColumnName="fprice" />
+          <ScalarProperty Name="ftype" ColumnName="ftype" />
+          <ScalarProperty Name="FImage" ColumnName="FImage" />
+          <ScalarProperty Name="fName" ColumnName="fName" />
+          <ScalarProperty Name="fid" ColumnName="fid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrderDetails">
+      <EntityTypeMapping TypeName="FYPModel.OrderDetail">
+        <MappingFragment StoreEntitySet="OrderDetail">
+          <ScalarProperty Name="frating" ColumnName="frating" />
+          <ScalarProperty Name="OrderStatus" ColumnName="OrderStatus" />
+          <ScalarProperty Name="foodQantity" ColumnName="foodQantity" />
+          <ScalarProperty Name="fid" ColumnName="fid" />
+          <ScalarProperty Name="oid" ColumnName="oid" />
+          <ScalarProperty Name="orderdid" ColumnName="orderdid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Menus">
+      <EntityTypeMapping TypeName="FYPModel.Menu">
+        <MappingFragment StoreEntitySet="Menu">
+          <ScalarProperty Name="oid" ColumnName="oid" />
+          <ScalarProperty Name="activatestatus" ColumnName="activatestatus" />
+          <ScalarProperty Name="cid" ColumnName="cid" />
+          <ScalarProperty Name="fid" ColumnName="fid" />
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
+          <ScalarProperty Name="Routinetype" ColumnName="Routinetype" />
+          <ScalarProperty Name="dtime" ColumnName="dtime" />
+          <ScalarProperty Name="Deleiveryday" ColumnName="Deleiveryday" />
+          <ScalarProperty Name="mid" ColumnName="mid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="returantratings">
+      <EntityTypeMapping TypeName="FYPModel.returantrating">
+        <MappingFragment StoreEntitySet="returantrating">
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="rating" ColumnName="rating" />
+          <ScalarProperty Name="rid" ColumnName="rid" />
+          <ScalarProperty Name="cid" ColumnName="cid" />
+          <ScalarProperty Name="resratid" ColumnName="resratid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Dboyratings">
+      <EntityTypeMapping TypeName="FYPModel.Dboyrating">
+        <MappingFragment StoreEntitySet="Dboyrating">
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="rating" ColumnName="rating" />
+          <ScalarProperty Name="did" ColumnName="did" />
+          <ScalarProperty Name="cid" ColumnName="cid" />
+          <ScalarProperty Name="ratid" ColumnName="ratid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ordersstatus">
+      <EntityTypeMapping TypeName="FYPModel.ordersstatu">
+        <MappingFragment StoreEntitySet="ordersstatus">
+          <ScalarProperty Name="cid" ColumnName="cid" />
+          <ScalarProperty Name="avalibilitystatus" ColumnName="avalibilitystatus" />
+          <ScalarProperty Name="acceptstatus" ColumnName="acceptstatus" />
+          <ScalarProperty Name="rid" ColumnName="rid" />
+          <ScalarProperty Name="did" ColumnName="did" />
+          <ScalarProperty Name="oid" ColumnName="oid" />
+          <ScalarProperty Name="osid" ColumnName="osid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

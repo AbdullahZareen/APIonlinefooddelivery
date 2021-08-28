@@ -1,0 +1,244 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FYPModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="FYPEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="UserLogins" EntityType="FYPModel.UserLogin" />
+    <FunctionImport Name="scheduledataday" ReturnType="Collection(FYPModel.scheduledataday_Result)">
+      <Parameter Name="ddays" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="scheduledataday1" ReturnType="Collection(FYPModel.scheduledataday1_Result)">
+      <Parameter Name="ddays" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="scheduledata2" ReturnType="Collection(FYPModel.scheduledata2_Result)" />
+    <EntitySet Name="Resturants" EntityType="FYPModel.Resturant" />
+    <FunctionImport Name="ordersproc" ReturnType="Collection(FYPModel.ordersproc_Result)">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="DeliverBoys" EntityType="FYPModel.DeliverBoy" />
+    <EntitySet Name="Customers" EntityType="FYPModel.Customer" />
+    <EntitySet Name="Orders" EntityType="FYPModel.Order" />
+    <EntitySet Name="Subscriptions" EntityType="FYPModel.Subscription" />
+    <EntitySet Name="SubscriptionDeleiveries" EntityType="FYPModel.SubscriptionDeleivery" />
+    <EntitySet Name="FoodItems" EntityType="FYPModel.FoodItem" />
+    <EntitySet Name="OrderDetails" EntityType="FYPModel.OrderDetail" />
+    <AssociationSet Name="FK__FoodItem__rid__01D345B0" Association="FYPModel.FK__FoodItem__rid__01D345B0">
+      <End Role="Resturant" EntitySet="Resturants" />
+      <End Role="FoodItem" EntitySet="FoodItems" />
+    </AssociationSet>
+    <EntitySet Name="Menus" EntityType="FYPModel.Menu" />
+    <EntitySet Name="returantratings" EntityType="FYPModel.returantrating" />
+    <EntitySet Name="Dboyratings" EntityType="FYPModel.Dboyrating" />
+    <EntitySet Name="ordersstatus" EntityType="FYPModel.ordersstatu" />
+  </EntityContainer>
+  <EntityType Name="UserLogin">
+    <Key>
+      <PropertyRef Name="u_id" />
+      <PropertyRef Name="roles" />
+    </Key>
+    <Property Name="u_id" Type="Int32" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="passward" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="roles" Type="String" Nullable="false" MaxLength="11" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <ComplexType Name="scheduledataday_Result">
+    <Property Type="String" Name="Deleiveryday" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="fName" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="scheduledataday1_Result">
+    <Property Type="Int32" Name="menu" Nullable="false" />
+    <Property Type="String" Name="Deleiveryday" Nullable="true" MaxLength="20" />
+    <Property Type="Time" Name="dtime" Nullable="true" />
+    <Property Type="String" Name="quantity" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="fName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="fprice" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="fdiscount" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="fcooktime" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="scheduledata2_Result">
+    <Property Type="Int32" Name="mid" Nullable="false" />
+    <Property Type="String" Name="Routinetype" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="Deleiveryday" Nullable="true" MaxLength="20" />
+    <Property Type="Time" Name="dtime" Nullable="true" />
+    <Property Type="String" Name="quantity" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="fName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="fprice" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="fdiscount" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="fcooktime" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <EntityType Name="Resturant">
+    <Key>
+      <PropertyRef Name="rid" />
+    </Key>
+    <Property Name="rid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="rcname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="rcaddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="rccity" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="rcemail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="rpassword" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="rclongitude" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="rclattitude" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="rcImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ownername" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Category" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="rcnumber" Type="Int32" />
+    <NavigationProperty Name="FoodItems" Relationship="FYPModel.FK__FoodItem__rid__01D345B0" FromRole="Resturant" ToRole="FoodItem" />
+  </EntityType>
+  <ComplexType Name="ordersproc_Result">
+    <Property Type="Int32" Name="oid" Nullable="false" />
+    <Property Type="DateTime" Name="odate" Nullable="true" />
+    <Property Type="Time" Name="odeliverytime" Nullable="true" />
+    <Property Type="Int32" Name="totalbill" Nullable="true" />
+  </ComplexType>
+  <EntityType Name="DeliverBoy">
+    <Key>
+      <PropertyRef Name="did" />
+    </Key>
+    <Property Name="did" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="dname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="daddress" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="dnumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="dpassword" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="dbikenumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="dlattitude" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="dlongitude" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="demail" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="WorkingStatus" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="cid" />
+    </Key>
+    <Property Name="cid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="cemail" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="cAddrees" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ccity" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="cnumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="cpassword" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="clongitude" Type="Double" />
+    <Property Name="clattitude" Type="Double" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="oid" />
+    </Key>
+    <Property Name="oid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="odate" Type="DateTime" Precision="0" />
+    <Property Name="deliverydate" Type="DateTime" Precision="0" />
+    <Property Name="otime" Type="Time" Precision="2" />
+    <Property Name="opickuptime" Type="Time" Precision="0" />
+    <Property Name="odeliverytime" Type="Time" Precision="0" />
+    <Property Name="Totalbill" Type="Int32" />
+    <Property Name="did" Type="Int32" />
+    <Property Name="cid" Type="Int32" />
+    <Property Name="acceptstatus" Type="Boolean" />
+    <Property Name="status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="rid" Type="Int32" />
+    <Property Name="SchduleStatus" Type="Boolean" />
+    <Property Name="Delivereddate" Type="DateTime" Precision="0" />
+    <Property Name="activatestatus" Type="Boolean" />
+    <Property Name="schday" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Subscription">
+    <Key>
+      <PropertyRef Name="subid" />
+    </Key>
+    <Property Name="subid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Startdate" Type="DateTime" Precision="0" />
+    <Property Name="enddate" Type="DateTime" Precision="0" />
+    <Property Name="cid" Type="Int32" />
+    <Property Name="status" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="SubscriptionDeleivery">
+    <Key>
+      <PropertyRef Name="subdelid" />
+    </Key>
+    <Property Name="subdelid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ddate" Type="DateTime" Precision="0" />
+    <Property Name="dstatus" Type="Boolean" />
+    <Property Name="mid" Type="Int32" />
+    <Property Name="did" Type="Int32" />
+  </EntityType>
+  <EntityType Name="FoodItem">
+    <Key>
+      <PropertyRef Name="fid" />
+    </Key>
+    <Property Name="fid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="fName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ftype" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="fprice" Type="Int32" />
+    <Property Name="fdiscount" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="fcooktime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="rid" Type="Int32" />
+    <NavigationProperty Name="Resturant" Relationship="FYPModel.FK__FoodItem__rid__01D345B0" FromRole="FoodItem" ToRole="Resturant" />
+  </EntityType>
+  <EntityType Name="OrderDetail">
+    <Key>
+      <PropertyRef Name="orderdid" />
+    </Key>
+    <Property Name="orderdid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="oid" Type="Int32" />
+    <Property Name="fid" Type="Int32" />
+    <Property Name="foodQantity" Type="Int32" />
+    <Property Name="OrderStatus" Type="Boolean" />
+    <Property Name="frating" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="FK__FoodItem__rid__01D345B0">
+    <End Type="FYPModel.Resturant" Role="Resturant" Multiplicity="0..1" />
+    <End Type="FYPModel.FoodItem" Role="FoodItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Resturant">
+        <PropertyRef Name="rid" />
+      </Principal>
+      <Dependent Role="FoodItem">
+        <PropertyRef Name="rid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Menu">
+    <Key>
+      <PropertyRef Name="mid" />
+    </Key>
+    <Property Name="mid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Deleiveryday" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="dtime" Type="Time" Precision="3" />
+    <Property Name="Routinetype" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="quantity" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="fid" Type="Int32" />
+    <Property Name="cid" Type="Int32" />
+    <Property Name="activatestatus" Type="Boolean" />
+    <Property Name="oid" Type="Int32" />
+  </EntityType>
+  <EntityType Name="returantrating">
+    <Key>
+      <PropertyRef Name="resratid" />
+    </Key>
+    <Property Name="resratid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cid" Type="Int32" />
+    <Property Name="rid" Type="Int32" />
+    <Property Name="rating" Type="Int32" />
+    <Property Name="status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Dboyrating">
+    <Key>
+      <PropertyRef Name="ratid" />
+    </Key>
+    <Property Name="ratid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cid" Type="Int32" />
+    <Property Name="did" Type="Int32" />
+    <Property Name="rating" Type="Int32" />
+    <Property Name="status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="ordersstatu">
+    <Key>
+      <PropertyRef Name="osid" />
+    </Key>
+    <Property Name="osid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="oid" Type="Int32" />
+    <Property Name="did" Type="Int32" />
+    <Property Name="rid" Type="Int32" />
+    <Property Name="acceptstatus" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="avalibilitystatus" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="cid" Type="Int32" />
+  </EntityType>
+</Schema>

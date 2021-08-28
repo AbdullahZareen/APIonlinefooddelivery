@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="FYPModelStoreContainer" CdmEntityContainer="FYPEntities">
+    <EntitySetMapping Name="Orders">
+      <EntityTypeMapping TypeName="FYPModel.Order">
+        <MappingFragment StoreEntitySet="Orders">
+          <ScalarProperty Name="dboycomments" ColumnName="dboycomments" />
+          <ScalarProperty Name="dboyrating" ColumnName="dboyrating" />
+          <ScalarProperty Name="orating" ColumnName="orating" />
+          <ScalarProperty Name="ocomments" ColumnName="ocomments" />
+          <ScalarProperty Name="odeliverytime" ColumnName="odeliverytime" />
+          <ScalarProperty Name="opickuptime" ColumnName="opickuptime" />
+          <ScalarProperty Name="otime" ColumnName="otime" />
+          <ScalarProperty Name="odate" ColumnName="odate" />
+          <ScalarProperty Name="oid" ColumnName="oid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Food_item">
+      <EntityTypeMapping TypeName="FYPModel.Food_item">
+        <MappingFragment StoreEntitySet="Food_item">
+          <ScalarProperty Name="rid" ColumnName="rid" />
+          <ScalarProperty Name="ftime" ColumnName="ftime" />
+          <ScalarProperty Name="fdiscount" ColumnName="fdiscount" />
+          <ScalarProperty Name="fprice" ColumnName="fprice" />
+          <ScalarProperty Name="ftype" ColumnName="ftype" />
+          <ScalarProperty Name="fname" ColumnName="fname" />
+          <ScalarProperty Name="fid" ColumnName="fid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customers">
+      <EntityTypeMapping TypeName="FYPModel.Customer">
+        <MappingFragment StoreEntitySet="Customer">
+          <ScalarProperty Name="cpassword" ColumnName="cpassword" />
+          <ScalarProperty Name="cnumber" ColumnName="cnumber" />
+          <ScalarProperty Name="ccity" ColumnName="ccity" />
+          <ScalarProperty Name="cAddrees" ColumnName="cAddrees" />
+          <ScalarProperty Name="cemail" ColumnName="cemail" />
+          <ScalarProperty Name="cname" ColumnName="cname" />
+          <ScalarProperty Name="cid" ColumnName="cid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserLogins">
+      <EntityTypeMapping TypeName="FYPModel.UserLogin">
+        <MappingFragment StoreEntitySet="UserLogin">
+          <ScalarProperty Name="roles" ColumnName="roles" />
+          <ScalarProperty Name="passwords" ColumnName="passwords" />
+          <ScalarProperty Name="email" ColumnName="email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DeliverBoys">
+      <EntityTypeMapping TypeName="FYPModel.DeliverBoy">
+        <MappingFragment StoreEntitySet="DeliverBoy">
+          <ScalarProperty Name="rclattitude" ColumnName="rclattitude" />
+          <ScalarProperty Name="rclongitude" ColumnName="rclongitude" />
+          <ScalarProperty Name="dpassword" ColumnName="dpassword" />
+          <ScalarProperty Name="dnumber" ColumnName="dnumber" />
+          <ScalarProperty Name="demail" ColumnName="demail" />
+          <ScalarProperty Name="dbike_model" ColumnName="dbike_model" />
+          <ScalarProperty Name="daddress" ColumnName="daddress" />
+          <ScalarProperty Name="dname" ColumnName="dname" />
+          <ScalarProperty Name="did" ColumnName="did" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Resturants">
+      <EntityTypeMapping TypeName="FYPModel.Resturant">
+        <MappingFragment StoreEntitySet="Resturant">
+          <ScalarProperty Name="rclattitude" ColumnName="rclattitude" />
+          <ScalarProperty Name="rclongitude" ColumnName="rclongitude" />
+          <ScalarProperty Name="cpassword" ColumnName="cpassword" />
+          <ScalarProperty Name="rcemail" ColumnName="rcemail" />
+          <ScalarProperty Name="rccity" ColumnName="rccity" />
+          <ScalarProperty Name="rcaddress" ColumnName="rcaddress" />
+          <ScalarProperty Name="rcname" ColumnName="rcname" />
+          <ScalarProperty Name="rid" ColumnName="rid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
